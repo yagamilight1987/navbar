@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+:root {
+  --primary: #226089;
+  --secondary: #f5f5f5;
+  --alternate: #2f89fc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  background: var(--primary);
+}
+
+/***********
+Header Style Starts
+***********/
+
+header {
+  background: var(--secondary);
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 4rem;
+  width: 10rem;
+  margin-right: auto;
+}
+
+.nav {
+  width: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav .hamburger {
+  height: 2.5px;
+  width: 50%;
+  background: var(--alternate);
+  cursor: pointer;
+}
+
+.nav .hamburger::before,
+.nav .hamburger::after {
+  content: "";
+  display: block;
+  height: 2.5px;
+  background: var(--alternate);
+  position: relative;
+}
+
+.nav .hamburger::before {
+  top: -0.5rem;
+}
+
+.nav .hamburger::after {
+  top: 0.5rem;
+}
+
+.nav ul {
+  list-style: none;
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  width: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 5px var(--alternate);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 500ms ease-in;
+}
+
+.nav ul.open {
+  transform: scaleY(1);
+}
+
+.nav a {
+  display: flex;
+  padding: 1rem;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--alternate);
+}
+
+.nav a {
+  background: var(--secondary);
+  border-bottom: 1px solid var(--alternate);
+}
+
+.nav li:last-child a {
+  border-bottom: none;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav a.active {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+/***********
+Header Style Ends
+***********/
+
+/***********
+Main Style Starts
+***********/
+
+.main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/***********
+Main Style Starts
+***********/
+
+@media only screen and (min-width: 768px) {
+  .nav .hamburger {
+    display: none;
+  }
+
+  .nav {
+    width: inherit;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .nav ul {
+    list-style: none;
+    display: flex;
+    position: initial;
+    top: initial;
+    right: initial;
+    width: initial;
+    background: initial;
+    box-shadow: initial;
+    transform: initial;
+    transition: none;
+  }
+
+  .nav li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav a {
+    border: none;
+    margin-right: 1.5rem;
+  }
+}

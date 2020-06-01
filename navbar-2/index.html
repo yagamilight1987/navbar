@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Navbar 1</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header" class="">
+      <a href="#" class="logo">
+        <span>codex</span>
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="#"><span>Pricing</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Support</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Features</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Sign Up</span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="main" class="main">
+      <section class="left">
+        <h1>Real Coding Projects</h1>
+        <h3>
+          Our courses are specifically designed to make you build real-life
+          projects from start to finish. We also offer certificates.
+        </h3>
+        <div class="buttons">
+          <button class="btn alt">Try for Free</button>
+          <button class="btn">Sign Up Now</button>
+        </div>
+      </section>
+      <section class="right">
+        <img src="coding-job.png" alt="Coding Job" />
+      </section>
+    </section>
+    <button id="toggleBtn" class="btn alt toggle" data-state="no-card">
+      Toggle
+    </button>
+    <script>
+      document.getElementById("toggleBtn").addEventListener("click", () => {
+        const toggleBtn = document.getElementById("toggleBtn");
+        if (toggleBtn.getAttribute("data-state") === "card") {
+          document.getElementById("header").classList.remove("card");
+          document.getElementById("main").classList.remove("card");
+          toggleBtn.setAttribute("data-state", "no-card");
+        } else {
+          document.getElementById("header").classList.add("card");
+          document.getElementById("main").classList.add("card");
+          toggleBtn.setAttribute("data-state", "card");
+        }
+      });
+    </script>
+  </body>
+</html>
