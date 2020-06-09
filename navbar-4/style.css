@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background: #6a99f5;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: white;
+  padding: 0 2rem;
+  height: 75px;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
+/*
+ Menu for large screens
+ */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+  color: black;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+
+.item:hover,
+.item:focus {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
+.item:hover .chevron,
+.item:focus .chevron {
+  border-color: blue;
+  transform: rotate(225deg);
+  transition: transform 250ms ease-in;
+}
+
+.item:hover .submenu,
+.item:focus .submenu {
+  opacity: 1;
+  visibility: visible;
+  top: 70px;
+}
+
+.item:first-child {
+  padding-left: 0;
+}
+
+.item:last-child {
+  padding-right: 0;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.chevron {
+  position: relative;
+  margin-left: 0.75rem;
+  background: white;
+  border: 2px solid black;
+  height: 8px;
+  width: 8px;
+  transform: rotate(45deg);
+  border-top: none;
+  border-left: none;
+  transition: transform 250ms ease-in;
+}
+
+.submenu {
+  display: flex;
+  position: absolute;
+  top: 80px;
+  background-color: white;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms ease-in;
+}
+
+.submenu ul {
+  list-style: none;
+  margin: 0 1rem;
+}
+
+.submenu li {
+  padding: 0.5rem;
+}
+
+.submenu.align-right {
+  right: 4vw;
+}
+/*
+ Menu for large screens End
+ */
+
+@media screen and (max-width: 988px) {
+  .navbar .menu {
+    display: none;
+    visibility: hidden;
+  }
+
+  /*
+  Menu for small screens
+  */
+  .menu-small .hamburger {
+    background: white;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    height: 22px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-color: black;
+    /* transition: border-color 250ms ease-in; */
+  }
+
+  .menu-small.open .hamburger {
+    border-color: white;
+    /* transition: border-color 250ms ease-in; */
+  }
+
+  .menu-small.open .hamburger i {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    /* transition: opacity 250ms ease-in; */
+  }
+
+  .menu-small .hamburger i {
+    display: block;
+    height: 2px;
+    background: black;
+    width: 80%;
+    /* transition: opacity 250ms ease-in; */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-small .hamburger span {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: black;
+    transform: rotate(45deg);
+    opacity: 0;
+    /* transition: all 250ms ease-in 1s; */
+  }
+
+  .menu-small .hamburger span::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: inherit;
+    top: -14px;
+    left: calc(50% - 2px);
+  }
+
+  .menu-small.open .hamburger span {
+    display: block;
+    opacity: 1;
+    /* transition: all 250ms ease-in 1s; */
+  }
+
+  .menu-small .menu-item {
+    display: none;
+    /* transition: all 500ms ease-in; */
+  }
+
+  .menu-small.open .menu-item {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    min-height: 100vh;
+    width: 80vw;
+    display: block;
+    background: white;
+    z-index: 999;
+    /* transition: all 500ms ease-in; */
+  }
+
+  .menu-item li {
+    padding: 1rem 2rem;
+  }
+
+  .menu-item li a {
+    text-decoration: none;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+  }
+
+  .menu-item li:hover a,
+  .menu-item li:focus a {
+    color: blue;
+  }
+  /*
+   Menu for small screens End
+   */
+}
+
+@media screen and (min-width: 988px) {
+  .navbar .menu-small {
+    display: none;
+    visibility: hidden;
+  }
+}
